@@ -1,0 +1,69 @@
+// importar bancodedados
+mysqldump -u root toughts > tht.sql
+
+USE bancodedados;
+
+// criação de tabelas
+CREATE TABLE pessoas (nome VARCHAR(100), cpf CHAR(11), descricao MEDIUMTEXT);
+
+// desafio 
+CREATE TABLE carros (nome VARCHAR(100), marca VARCHAR(100), preco CHAR(100)); 
+
+// remover tabela
+DROP TABLE carros;
+
+// tipos de dados 
+TEXTO, NUMERICO, DATA E ESPACIAL
+
+// TEXTO
+CHAR(X) 0 a 255 caracteres
+VARCHAR(X) 0 a 65535 ''eros e caracteres
+(esses dos primeiros aceita num)
+(X) e o maximo
+TINYTEXT apenas texto ate 255 caracteres
+MEDIUMTEXT apenas texto ate  16777215
+
+
+// praticando
+# - TABELA COM TIPO DE DADO STRING
+CREATE TABLE produtos (nome VARCHAR(100), sku CHAR(5), informacoes MEDIUMTEXT);
+
+// inserindo dados
+INSERT INTO produtos (nome, sku, informacoes) VALUES ("Plastation 5", "PS5XY", "É um videogame de ultima geração");
+INSERT INTO produtos (nome, sku, informacoes) VALUES ("TV Smart 42", "TV42", "Tv com alta tecnologia");
+
+// dados numericos
+BIT(x) 1 a 64
+TINYTEXT(x) 1 a 255
+BOOL 0 falso -- 1 verdadeiro
+INT(x) -21474883648 a 2147483647
+
+// criando tabela com numeros 
+CREATE TABLE servidores (nome VARCHAR(100), espaco_disco INT(10), ligado BOOL);
+INSERT INTO servidores (nome, espaco_disco, ligado) VALUES ("Global", "1000000000", 1);
+INSERT INTO servidores (nome, espaco_disco, ligado) VALUES ("Local", 123456, 0);
+
+// tipos de data
+DATE yyy-mm-dd
+DATETIME data com hora hh:mm:ss 
+TIMESTAMP aceita o DATETIME porem de 1970 ate 2038
+datas com "" tambem 
+
+// criando tabela com data
+CREATE TABLE aniversarios (nome VARCHAR(100), data_nascimento DATE);
+INSERT INTO aniversarios (nome, data_nascimento) VALUES ("Alan Nunes", "1996/08/22");
+INSERT INTO aniversarios (nome, data_nascimento) VALUES ("Larissa Nunes", "2023-10-05");
+
+#  - ALTERAR TABELA
+CREATE TABLE funcionarios (nome VARCHAR(100));
+
+#  - ADICIONAR COLUNA
+ALTER TABLE funcionarios ADD COLUMN profissao VARCHAR(100);
+
+#  - REMOVER COLUNA
+ALTER TABLE funcionarios DROP COLUMN profissao;
+
+#  - ALTERAR COLUNA
+ALTER TABLE funcionarios ADD COLUMN data_nascimento VARCHAR(100);
+
+ALTER TABLE funcionarios MODIFY COLUMN data_nascimento DATE;
