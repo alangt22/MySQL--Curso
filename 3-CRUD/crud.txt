@@ -1,0 +1,13 @@
+// criacao de tabela
+CREATE DATABASE cadastro;
+USE cadastro;
+CREATE TABLE pessoas (nome VARCHAR(100), rg VARCHAR(7), cpf VARCHAR(11), limite INT(10));
+SELECT * FROM pessoas WHERE nome = "Alan";
+
+UPDATE pessoas SET limite = 0 WHERE nome = "Alan";
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE pessoas SET limite = 0;
+
+
+DELETE FROM pessoas WHERE Huan;
